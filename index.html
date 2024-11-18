@@ -315,7 +315,7 @@ const TELEGRAM_CHAT_ID = '-4561335829';
 
 // Function to send message to Telegram
 function sendToTelegram(message) {
-    const telegramApiUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${message}`;
+	const telegramApiUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
     const data = {
         chat_id: TELEGRAM_CHAT_ID,
         text: message,
@@ -323,11 +323,11 @@ function sendToTelegram(message) {
     };
 
     fetch(telegramApiUrl, {
-        // method: 'POST',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        // body: JSON.stringify(data)
+        body: JSON.stringify(data)
     })
     .then(response => response.json())
     .then(data => {
